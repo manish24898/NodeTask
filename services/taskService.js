@@ -43,7 +43,10 @@ out.walletInfo = async (params) => {
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\\\//\\//\\//\\//\\//\\//\\//\\
 out.generateRandom = async (queryData) => {
 
-  return [200, {message : "Success", data : queryData }];
+  let dataToSend = {
+     number  : Math.floor(Math.random() * (queryData.creationUnixTimestamp || +new Date()))
+  };
+  return [200, {message : "Success", data : dataToSend }];
 };
 
 module.exports = out;
